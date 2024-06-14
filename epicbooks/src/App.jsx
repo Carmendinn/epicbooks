@@ -11,6 +11,10 @@ import horror from './books/horror.json';
 import scifi from './books/scifi.json';
 import CategoryButtons from './components/CategoryButtons';
 
+
+
+
+
 function App() {
  
   let [type, setType] = useState('fantasy');
@@ -19,6 +23,7 @@ function App() {
   const handleSearch = (e) => setSearch(e.target.value);
   return (
     <>
+      
       <MyNav search={search} handleSearch={handleSearch}/>
       <Welcome className="container mx-auto" />
       <CategoryButtons setType={setType}/>

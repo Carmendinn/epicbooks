@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import CommentArea from './CommentArea';
 
-export default function SingleBook({book, selected, setSelected}) {
-    
-  return (
-    <div 
-            
-            className={`mx-auto w-[300px] h-[380px] border rounded-lg shadow dark:bg-gray-800 ${selected ? "border-2 border-pink-800" : "border border-gray-200"}`} 
+export default function SingleBook({ book, selected, setSelected }) {
+
+    return (
+        <div
+
+            className={`mx-auto mt-4  w-[200px] h-[380px] border rounded-lg shadow dark:bg-gray-800 ${selected ? "border-2 border-pink-800" : "border border-gray-200"}`}
             onClick={() => setSelected(!selected)}
         >
             <a href="#">
@@ -23,6 +24,7 @@ export default function SingleBook({book, selected, setSelected}) {
                     </svg>
                 </a>
             </div>
+            {selected && <CommentArea asin={book.asin}/>}
         </div>
-  )
+    )
 }
