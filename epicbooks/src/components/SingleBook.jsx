@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-export default function SingleBook() {
-    const [selected, setSelected] = useState(false);
+export default function SingleBook({book, selected, setSelected}) {
+    
   return (
     <div 
-            key={book.id} 
+            
             className={`mx-auto w-[300px] h-[380px] border rounded-lg shadow dark:bg-gray-800 ${selected ? "border-2 border-pink-800" : "border border-gray-200"}`} 
             onClick={() => setSelected(!selected)}
         >
