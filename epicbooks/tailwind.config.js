@@ -4,7 +4,10 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   'node_modules/flowbite-react/lib/esm/**/*.js'],
   theme: {
-    extend: {},
+    extend: {backgroundImage: {
+      'radial-gradient': 'radial-gradient(var(--tw-gradient-stops))',
+      'conic-gradient': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+    },},
   },
   plugins: [require('flowbite/plugin')],
 }
