@@ -11,7 +11,9 @@ import horror from './books/horror.json';
 import scifi from './books/scifi.json';
 import CategoryButtons from './components/CategoryButtons';
 import { ThemeContext, AuthContext } from './components/modules/Context';
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NotFound from './components/NotFound';
+import BookDetails from './components/BookDetails';
 
 
 
@@ -28,19 +30,26 @@ function App() {
     <>
       <ThemeContext.Provider value={[theme, setTheme]}>
         <AuthContext.Provider value={[authUser]}>
-          <MyNav search={search} handleSearch={handleSearch} />
-          <Welcome />
-          <CategoryButtons setType={setType} />
-          {type === 'fantasy' && <AllTheBooks books={fantasy} search={search} />}
-          {type === 'history' && <AllTheBooks books={history} search={search} />}
-          {type === 'horror' && <AllTheBooks books={horror} search={search} />}
-          {type === 'scifi' && <AllTheBooks books={scifi} search={search} />}
-          <MyFooter />
+          <BrowserRouter>
+            <MyNav search={search} handleSearch={handleSearch} />
+            <Welcome />
+            <Routes>
+              <Route index element={<AllTheBooks books={fantasy} search={search} />}></Route>
+              <Route path='/details/:asin' element={<BookDetails />}></Route>
+              <Route path='*' element={<NotFound />}></Route>
+            </Routes>
+           {/*<CategoryButtons setType={setType} />
+            {type === 'fantasy' && <AllTheBooks books={fantasy} search={search} />}
+            {type === 'history' && <AllTheBooks books={history} search={search} />}
+            {type === 'horror' && <AllTheBooks books={horror} search={search} />}
+            {type === 'scifi' && <AllTheBooks books={scifi} search={search} />}*/} 
+            <MyFooter />
+          </BrowserRouter>
         </AuthContext.Provider>
       </ThemeContext.Provider>
     </>
   );
-  
+
 
 }
 
