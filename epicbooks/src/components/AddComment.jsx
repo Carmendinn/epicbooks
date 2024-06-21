@@ -9,15 +9,15 @@ export default function AddComment({ elementId, setAdd, add }) {
   };
 
   const setRateHandler = (e) => {
-    e.stopPropagation(); // Stop event propagation
+    e.stopPropagation(); 
     setComments({ ...comments, rate: e.target.value,
       elementId: elementId
      });
   };
 
   const sendComment = (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
-    event.stopPropagation(); // Stop event propagation
+    event.preventDefault(); 
+    event.stopPropagation(); 
 
     fetch('https://striveschool-api.herokuapp.com/api/comments/', {
       method: 'POST',

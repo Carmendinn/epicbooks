@@ -9,7 +9,7 @@ export default function SingleBook({ book, selected, setSelected }) {
     let navigate =useNavigate();
 
     return (
-        <div id='card'
+        <div id='card' data-testid={`book-${id}`}
             className={`bg-gray-200 mt-4 w-[200px] ${selected ? "mb-64" : "mb-4"} h-[380px] border rounded-lg shadow dark:bg-gray-800 ${selected ? "border-2 border-pink-800" : "border border-gray-200"}`}
             onClick={handleClick} 
         >
